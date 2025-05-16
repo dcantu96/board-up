@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Board Up
+
+Check out the [live demo](https://board-up.vercel.app/)!
 
 ## Getting Started
 
