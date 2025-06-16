@@ -1,7 +1,5 @@
-import { PrismaClient } from "@/generated/prisma";
 import Link from "next/link";
-
-const prisma = new PrismaClient();
+import prisma from "@/db";
 
 export default async function BoardsPage() {
   const boards = await prisma.board.findMany();
