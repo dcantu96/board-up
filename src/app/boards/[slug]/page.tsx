@@ -1,6 +1,4 @@
-import { PrismaClient } from "@/generated/prisma";
-
-const prisma = new PrismaClient();
+import prisma from "@/db";
 
 export default async function BoardPage({
   params,

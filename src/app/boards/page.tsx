@@ -1,7 +1,7 @@
-import { PrismaClient } from "@/generated/prisma";
 import Link from "next/link";
+import prisma from "@/db";
 
-const prisma = new PrismaClient();
+export const dynamic = "force-dynamic";
 
 export default async function BoardsPage() {
   const boards = await prisma.board.findMany();
