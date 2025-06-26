@@ -1,6 +1,14 @@
+"use client";
 import Image from "next/image";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Home() {
+  const { data: session } = useSession();
+
+  if (!session) {
+    return <button onClick={() => signIn("google")}>Sign in with Gmail</button>;
+  }
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
@@ -90,6 +98,15 @@ export default function Home() {
           />
           Go to nextjs.org →
         </a>
+        <div>
+          <p>Signed in as {session.user?.email}</p>
+          <button
+            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
+            onClick={() => signOut()}
+          >
+            Sign out
+          </button>
+        </div>
       </footer>
     </div>
   );
