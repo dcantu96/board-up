@@ -6,7 +6,9 @@ export default function Home() {
   const { data: session } = useSession();
 
   if (!session) {
-    return <button onClick={() => signIn("google")}>Sign in with Gmail</button>;
+    return (
+      <button onClick={() => signIn("google")}>Sign in with Google</button>
+    );
   }
 
   return (
