@@ -17,6 +17,7 @@ A modern, open-source Kanban board app inspired primarily by [Linear](https://li
 - **Design Patterns**: Clean, reusable, and scalable code architecture throughout the stack.
 - **Responsive UI**: Works great on desktop and mobile.
 - **Built with Next.js & Prisma**: Fast, reliable, and easy to extend.
+- **TypeScript**: Strongly typed code for better maintainability and developer experience.
 
 ---
 
@@ -45,7 +46,13 @@ A modern, open-source Kanban board app inspired primarily by [Linear](https://li
 
    - Copy `.env.example` to `.env` and fill in required variables (see below).
 
-4. **Run the development server:**
+4. **Start your Prisma database locally:**
+
+   ```bash
+   npx prisma dev
+   ```
+
+5. **Run the development server:**
 
    ```bash
    npm run dev
@@ -57,7 +64,7 @@ A modern, open-source Kanban board app inspired primarily by [Linear](https://li
    bun dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) to see the app.
+6. Open [http://localhost:3000](http://localhost:3000) to see the app.
 
 ---
 
@@ -81,6 +88,10 @@ This project uses [Prisma](https://www.prisma.io/) for database access.
 - To set up your database, run:
   ```bash
   npx prisma migrate dev
+  ```
+- To start the Prisma database locally:
+  ```bash
+  npx prisma dev
   ```
 - To seed demo data:
   ```bash
