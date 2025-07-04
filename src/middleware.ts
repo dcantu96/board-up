@@ -12,4 +12,6 @@ export async function middleware(request: NextRequest) {
     url.searchParams.set("callbackUrl", request.url);
     return NextResponse.redirect(url);
   }
+
+  return NextResponse.next();
 }
