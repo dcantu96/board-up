@@ -1,13 +1,11 @@
-import { auth } from "@/auth"; // your custom auth config path
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { isAuthenticated } from "@/auth-edge";
 
 export async function middleware(request: NextRequest) {
-  const session = await auth();
+  const authenticated = await isAuthenticated(request);
 
-  const isAuthenticated = !!session;
-
-  if (!isAuthenticated) {
+  if (!authenticated) {
     const url = new URL("/api/auth/signin", request.url);
     url.searchParams.set("callbackUrl", request.url);
     return NextResponse.redirect(url);
